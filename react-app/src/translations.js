@@ -9,7 +9,7 @@ export const translations = {
       location: 'Posizione',
       contact: 'Contatti'
     },
-    
+
     // Hero
     hero: {
       title: 'Le Stanze di Caterina',
@@ -22,7 +22,7 @@ export const translations = {
         'Suite Italiana'
       ]
     },
-    
+
     // About
     about: {
       label: 'Benvenuti',
@@ -31,7 +31,7 @@ export const translations = {
       p2: "Ogni dettaglio è stato curato con passione per offrirvi un soggiorno indimenticabile, dove il fascino dell'arte e della storia si fondono con servizi di altissimo livello.",
       features: ['Posizione centrale', 'Design raffinato', 'Servizio esclusivo']
     },
-    
+
     // Rooms
     rooms: {
       label: 'Alloggi',
@@ -42,7 +42,7 @@ export const translations = {
       italiana: 'Suite Italiana',
       francese: 'Suite Francese'
     },
-    
+
     // Services
     services: {
       wifi: { title: 'Wi-Fi Gratuito', desc: 'Connessione veloce in tutta la struttura' },
@@ -50,7 +50,7 @@ export const translations = {
       support: { title: 'Assistenza h24', desc: 'Supporto sempre disponibile per ogni esigenza' },
       location: { title: 'Posizione Centrale', desc: 'A 2 minuti a piedi dal Duomo di Firenze' }
     },
-    
+
     // Gallery
     gallery: {
       label: 'Galleria',
@@ -61,7 +61,7 @@ export const translations = {
       pageDescription: 'Scopri ogni angolo delle nostre eleganti stanze attraverso la nostra collezione fotografica',
       backHome: 'Torna alla Home'
     },
-    
+
     // Location
     location: {
       label: 'Posizione',
@@ -74,7 +74,7 @@ export const translations = {
         { value: '10 min', label: 'Palazzo Pitti' }
       ]
     },
-    
+
     // Contact
     contact: {
       label: 'Contatti',
@@ -82,27 +82,9 @@ export const translations = {
       description: 'Per informazioni e prenotazioni, non esitate a contattarci. Il nostro team sarà lieto di assistervi nella pianificazione del vostro soggiorno perfetto.',
       address: 'Indirizzo',
       phone: 'Telefono',
-      email: 'Email',
-      form: {
-        name: 'Nome e Cognome',
-        email: 'Email',
-        checkin: 'Check-in',
-        checkout: 'Check-out',
-        guests: 'Numero Ospiti',
-        guestOptions: ['1 Ospite', '2 Ospiti', '3 Ospiti', '4 Ospiti'],
-        message: 'Messaggio (opzionale)',
-        submit: 'Richiedi Disponibilità',
-        submitting: 'Invio in corso...'
-      },
-      errors: {
-        required: 'Per favore, compila tutti i campi obbligatori.',
-        invalidEmail: 'Per favore, inserisci un indirizzo email valido.',
-        invalidDates: 'La data di check-out deve essere successiva al check-in.',
-        sendError: 'Si è verificato un errore. Riprova più tardi.'
-      },
-      success: 'Grazie per la tua richiesta! Ti contatteremo presto.'
+      email: 'Email'
     },
-    
+
     // Footer
     footer: {
       tagline: "Un'esperienza di ospitalità unica nel cuore di Firenze.",
@@ -110,7 +92,7 @@ export const translations = {
       follow: 'Seguici',
       rights: '© 2024 Le Stanze di Caterina. Tutti i diritti riservati.'
     },
-    
+
     // Room Page
     roomPage: {
       bookNow: 'Prenota Ora',
@@ -124,7 +106,7 @@ export const translations = {
       otherRooms: 'Scopri le altre stanze',
       backHome: 'Torna alla Home',
       showAllPhotos: 'Mostra tutte le foto',
-      
+
       // Room specific
       spagnola: {
         title: 'Suite Spagnola',
@@ -161,7 +143,7 @@ export const translations = {
       }
     }
   },
-  
+
   en: {
     // Navbar
     nav: {
@@ -172,7 +154,7 @@ export const translations = {
       location: 'Location',
       contact: 'Contact'
     },
-    
+
     // Hero
     hero: {
       title: 'Le Stanze di Caterina',
@@ -185,7 +167,7 @@ export const translations = {
         'Italian Suite'
       ]
     },
-    
+
     // About
     about: {
       label: 'Welcome',
@@ -194,7 +176,7 @@ export const translations = {
       p2: 'Every detail has been lovingly curated to offer you an unforgettable stay, where the charm of art and history blend with the highest level of service.',
       features: ['Central location', 'Refined design', 'Exclusive service']
     },
-    
+
     // Rooms
     rooms: {
       label: 'Accommodations',
@@ -205,7 +187,7 @@ export const translations = {
       italiana: 'Italian Suite',
       francese: 'French Suite'
     },
-    
+
     // Services
     services: {
       wifi: { title: 'Free Wi-Fi', desc: 'High-speed connection throughout the property' },
@@ -213,7 +195,7 @@ export const translations = {
       support: { title: '24/7 Support', desc: 'Always available for your every need' },
       location: { title: 'Central Location', desc: '2 minutes walk from Florence Duomo' }
     },
-    
+
     // Gallery
     gallery: {
       label: 'Gallery',
@@ -224,7 +206,7 @@ export const translations = {
       pageDescription: 'Discover every corner of our elegant rooms through our photo collection',
       backHome: 'Back to Home'
     },
-    
+
     // Location
     location: {
       label: 'Location',
@@ -237,7 +219,7 @@ export const translations = {
         { value: '10 min', label: 'Pitti Palace' }
       ]
     },
-    
+
     // Contact
     contact: {
       label: 'Contact',
@@ -245,27 +227,9 @@ export const translations = {
       description: 'For information and reservations, please do not hesitate to contact us. Our team will be happy to assist you in planning your perfect stay.',
       address: 'Address',
       phone: 'Phone',
-      email: 'Email',
-      form: {
-        name: 'Full Name',
-        email: 'Email',
-        checkin: 'Check-in',
-        checkout: 'Check-out',
-        guests: 'Number of Guests',
-        guestOptions: ['1 Guest', '2 Guests', '3 Guests', '4 Guests'],
-        message: 'Message (optional)',
-        submit: 'Request Availability',
-        submitting: 'Sending...'
-      },
-      errors: {
-        required: 'Please fill in all required fields.',
-        invalidEmail: 'Please enter a valid email address.',
-        invalidDates: 'Check-out date must be after check-in date.',
-        sendError: 'An error occurred. Please try again later.'
-      },
-      success: 'Thank you for your request! We will contact you soon.'
+      email: 'Email'
     },
-    
+
     // Footer
     footer: {
       tagline: 'A unique hospitality experience in the heart of Florence.',
@@ -273,7 +237,7 @@ export const translations = {
       follow: 'Follow Us',
       rights: '© 2024 Le Stanze di Caterina. All rights reserved.'
     },
-    
+
     // Room Page
     roomPage: {
       bookNow: 'Book Now',
@@ -287,7 +251,7 @@ export const translations = {
       otherRooms: 'Discover other rooms',
       backHome: 'Back to Home',
       showAllPhotos: 'Show all photos',
-      
+
       // Room specific
       spagnola: {
         title: 'Spanish Suite',

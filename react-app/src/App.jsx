@@ -87,7 +87,7 @@ function Navbar() {
     if (target) {
       const navbarHeight = 80
       const targetPosition = target.offsetTop - navbarHeight
-      
+
       window.scrollTo({
         top: targetPosition,
         behavior: 'smooth'
@@ -437,7 +437,6 @@ function GallerySection() {
         <span className="section-label">{t.gallery.label}</span>
         <h2>{t.gallery.title}</h2>
         <div className="separator center"></div>
-        <p className="section-description">{t.gallery.description}</p>
       </div>
       <div className="gallery-carousel">
         <div
@@ -507,67 +506,6 @@ function ContactSection() {
   const { language } = useLanguage()
   const t = translations[language]
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    checkin: '',
-    checkout: '',
-    guests: '',
-    message: ''
-  })
-  const [notification, setNotification] = useState(null)
-
-  const showNotification = (message, type = 'success') => {
-    setNotification({ message, type })
-    setTimeout(() => setNotification(null), 5000)
-  }
-
-  const formRef = useRef()
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    if (!formData.name || !formData.email || !formData.checkin || !formData.checkout) {
-      showNotification(t.contact.errors.required, 'error')
-      return
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(formData.email)) {
-      showNotification(t.contact.errors.invalidEmail, 'error')
-      return
-    }
-
-    if (new Date(formData.checkin) >= new Date(formData.checkout)) {
-      showNotification(t.contact.errors.invalidDates, 'error')
-      return
-    }
-
-    setIsSubmitting(true)
-
-    // EmailJS configuration - REPLACE with your own credentials from emailjs.com
-    const SERVICE_ID = 'YOUR_SERVICE_ID'  // Get from EmailJS dashboard
-    const TEMPLATE_ID = 'YOUR_TEMPLATE_ID' // Get from EmailJS dashboard  
-    const PUBLIC_KEY = 'YOUR_PUBLIC_KEY'   // Get from EmailJS dashboard
-
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
-      .then(() => {
-        showNotification(t.contact.success, 'success')
-        setFormData({ name: '', email: '', checkin: '', checkout: '', guests: '', message: '' })
-        setIsSubmitting(false)
-      })
-      .catch((error) => {
-        console.error('EmailJS Error:', error)
-        showNotification(t.contact.errors.sendError, 'error')
-        setIsSubmitting(false)
-      })
-  }
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value })
-  }
-
   return (
     <section id="contact" className="contact">
       <div className="container">
@@ -615,87 +553,13 @@ function ContactSection() {
               </div>
             </div>
           </div>
-          <div className="contact-form-container">
-            <form ref={formRef} className="contact-form" onSubmit={handleSubmit}>
-              <div className="form-group">
-                <input type="text" id="name" name="user_name" required value={formData.name} onChange={handleChange} />
-                <label htmlFor="name">{t.contact.form.name}</label>
-              </div>
-              <div className="form-group">
-                <input type="email" id="email" name="user_email" required value={formData.email} onChange={handleChange} />
-                <label htmlFor="email">{t.contact.form.email}</label>
-              </div>
-              <div className="form-row">
-                <div className="form-group">
-                  <input type="date" id="checkin" name="checkin_date" required value={formData.checkin} onChange={handleChange} />
-                  <label htmlFor="checkin" className="date-label">{t.contact.form.checkin}</label>
-                </div>
-                <div className="form-group">
-                  <input type="date" id="checkout" name="checkout_date" required value={formData.checkout} onChange={handleChange} />
-                  <label htmlFor="checkout" className="date-label">{t.contact.form.checkout}</label>
-                </div>
-              </div>
-              <div className="form-group">
-                <select id="guests" name="guests_count" required value={formData.guests} onChange={handleChange}>
-                  <option value="" disabled></option>
-                  <option value="1">{t.contact.form.guestOptions[0]}</option>
-                  <option value="2">{t.contact.form.guestOptions[1]}</option>
-                  <option value="3">{t.contact.form.guestOptions[2]}</option>
-                  <option value="4">{t.contact.form.guestOptions[3]}</option>
-                </select>
-                <label htmlFor="guests">{t.contact.form.guests}</label>
-              </div>
-              <div className="form-group">
-                <textarea id="message" name="message" rows="4" value={formData.message} onChange={handleChange}></textarea>
-                <label htmlFor="message">{t.contact.form.message}</label>
-              </div>
-              <button type="submit" className="btn-submit" disabled={isSubmitting}>
-                {isSubmitting ? t.contact.form.submitting : t.contact.form.submit}
-              </button>
-            </form>
+          <div className="contact-action">
+            <a href="mailto:giacomomarretti1997@gmail.com" className="btn-book-now">
+              {t.roomPage.bookNow}
+            </a>
           </div>
         </div>
       </div>
-
-      {notification && (
-        <div
-          className={`notification notification-${notification.type}`}
-          style={{
-            position: 'fixed',
-            bottom: '30px',
-            right: '30px',
-            padding: '20px 25px',
-            background: notification.type === 'success' ? '#4A1F25' : '#A65D57',
-            color: '#FAF6F1',
-            borderRadius: '0',
-            boxShadow: '0 10px 40px rgba(74, 31, 37, 0.3)',
-            zIndex: 9999,
-            display: 'flex',
-            alignItems: 'center',
-            gap: '15px',
-            fontFamily: "'Montserrat', sans-serif",
-            fontSize: '0.9rem',
-            fontWeight: 300,
-            animation: 'slideInRight 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-            maxWidth: '400px'
-          }}
-        >
-          <span>{notification.message}</span>
-          <button
-            onClick={() => setNotification(null)}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: 'inherit',
-              fontSize: '1.5rem',
-              cursor: 'pointer',
-              opacity: 0.7,
-              padding: 0,
-              lineHeight: 1
-            }}
-          >×</button>
-        </div>
-      )}
     </section>
   )
 }

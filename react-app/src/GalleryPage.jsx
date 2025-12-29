@@ -72,7 +72,6 @@ function Lightbox({ image, onClose, onPrev, onNext }) {
 
             <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
                 <img src={image.src} alt={image.alt} />
-                <p className="lightbox-caption">{image.alt}</p>
             </div>
 
             <button className="lightbox-nav next" onClick={(e) => { e.stopPropagation(); onNext() }}>
@@ -97,19 +96,19 @@ function GalleryPage() {
         window.scrollTo(0, 0)
     }, [])
 
-    const categories = language === 'it' 
+    const categories = language === 'it'
         ? [
             { id: 'tutti', label: 'Tutti' },
             { id: 'camere', label: 'Camere' },
             { id: 'interni', label: 'Interni' },
             { id: 'esterno', label: 'Esterno' }
-          ]
+        ]
         : [
             { id: 'tutti', label: 'All' },
             { id: 'camere', label: 'Rooms' },
             { id: 'interni', label: 'Interiors' },
             { id: 'esterno', label: 'Exterior' }
-          ]
+        ]
 
     const filteredImages = selectedCategory === 'tutti'
         ? galleryImages
@@ -132,7 +131,7 @@ function GalleryPage() {
     }
 
     const ctaTitle = language === 'it' ? 'Prenota il Tuo Soggiorno' : 'Book Your Stay'
-    const ctaDesc = language === 'it' 
+    const ctaDesc = language === 'it'
         ? "Vieni a vivere l'esperienza di ospitalità che solo Le Stanze di Caterina può offrire"
         : 'Come and experience the hospitality that only Le Stanze di Caterina can offer'
     const ctaButton = language === 'it' ? 'Contattaci' : 'Contact Us'
@@ -147,7 +146,6 @@ function GalleryPage() {
                 <div className="gallery-hero-content">
                     <span className="gallery-label">{t.gallery.label}</span>
                     <h1>{t.gallery.title}</h1>
-                    <p>{t.gallery.description}</p>
                 </div>
             </header>
 
@@ -186,7 +184,6 @@ function GalleryPage() {
                                     onLoad={() => handleImageLoad(image.src)}
                                 />
                                 <div className="masonry-overlay">
-                                    <span className="masonry-caption">{image.alt}</span>
                                     <span className="masonry-icon">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                                             <circle cx="11" cy="11" r="8" />

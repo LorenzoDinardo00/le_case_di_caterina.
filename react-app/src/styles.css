@@ -350,6 +350,7 @@ img {
     0% {
         transform: scale(1);
     }
+
     100% {
         transform: scale(1.08);
     }
@@ -789,23 +790,19 @@ img {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to top,
-        rgba(74, 31, 37, 0.95) 0%,
-        rgba(74, 31, 37, 0.4) 40%,
-        transparent 70%
-    );
+    background: linear-gradient(to top,
+            rgba(74, 31, 37, 0.95) 0%,
+            rgba(74, 31, 37, 0.4) 40%,
+            transparent 70%);
     z-index: 1;
     transition: background 0.5s var(--transition-smooth);
 }
 
 .room-card:hover::before {
-    background: linear-gradient(
-        to top,
-        rgba(74, 31, 37, 0.98) 0%,
-        rgba(74, 31, 37, 0.6) 50%,
-        rgba(74, 31, 37, 0.3) 100%
-    );
+    background: linear-gradient(to top,
+            rgba(74, 31, 37, 0.98) 0%,
+            rgba(74, 31, 37, 0.6) 50%,
+            rgba(74, 31, 37, 0.3) 100%);
 }
 
 .room-image {
@@ -1147,106 +1144,39 @@ img {
 }
 
 /* Contact Form */
-.contact-form-container {
-    background: var(--color-cream-dark);
-    padding: clamp(30px, 5vw, 50px);
-}
-
-.contact-form {
+/* Contact Action */
+.contact-action {
     display: flex;
-    flex-direction: column;
-    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    background: var(--color-cream-dark);
+    border: 1px solid rgba(107, 45, 53, 0.1);
 }
 
-.form-group {
-    position: relative;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 18px 0;
+.btn-book-now {
+    display: inline-block;
+    padding: 22px 60px;
     font-family: var(--font-body);
     font-size: 1rem;
-    font-weight: 300;
-    color: var(--color-text);
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(107, 45, 53, 0.2);
-    outline: none;
-    transition: border-color 0.3s var(--transition-smooth);
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: var(--color-burgundy);
-}
-
-.form-group label {
-    position: absolute;
-    left: 0;
-    top: 18px;
-    font-size: 0.9rem;
-    color: var(--color-text-light);
-    pointer-events: none;
-    transition: all 0.3s var(--transition-smooth);
-}
-
-.form-group input:focus~label,
-.form-group input:valid~label,
-.form-group select:focus~label,
-.form-group select:valid~label,
-.form-group textarea:focus~label,
-.form-group textarea:valid~label {
-    top: -10px;
-    font-size: 0.75rem;
-    color: var(--color-terracotta);
-}
-
-.form-group .date-label {
-    top: -10px;
-    font-size: 0.75rem;
-    color: var(--color-terracotta);
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-
-.form-group select {
-    cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-.form-group textarea {
-    resize: none;
-    min-height: 100px;
-}
-
-.btn-submit {
-    padding: 20px 50px;
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 0.15em;
+    font-weight: 500;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--color-cream);
     background: var(--color-burgundy);
     border: none;
+    text-decoration: none;
     cursor: pointer;
     transition: all 0.4s var(--transition-smooth);
-    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(107, 45, 53, 0.2);
 }
 
-.btn-submit:hover {
+.btn-book-now:hover {
     background: var(--color-burgundy-dark);
-    transform: translateY(-2px);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(107, 45, 53, 0.3);
+    color: var(--color-cream);
 }
 
 /* ========================================
@@ -1926,41 +1856,14 @@ img {
         word-break: break-word;
     }
 
-    .contact-form-container {
-        margin: 0;
-        padding: 30px 25px;
-        border-radius: 16px;
-        background: white;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    .contact-action {
+        padding: 40px 25px;
     }
 
-    .contact-form {
-        gap: 22px;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        padding: 14px 0;
-        font-size: 1rem;
-        background: transparent;
-    }
-
-    .form-group label {
-        font-size: 0.85rem;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 22px;
-    }
-
-    .btn-submit {
+    .btn-book-now {
         width: 100%;
-        padding: 16px 30px;
-        font-size: 0.85rem;
-        border-radius: 8px;
-        margin-top: 10px;
+        padding: 20px 30px;
+        font-size: 0.95rem;
     }
 
     /* === FOOTER MOBILE === */
@@ -2094,14 +1997,14 @@ img {
         font-size: 0.9rem;
     }
 
-    .contact-form-container {
-        padding: 25px 20px;
+    .contact-action {
+        padding: 30px 20px;
         border-radius: 12px;
     }
 
-    .btn-submit {
-        padding: 14px 25px;
-        font-size: 0.8rem;
+    .btn-book-now {
+        padding: 18px 25px;
+        font-size: 0.9rem;
     }
 }
 
