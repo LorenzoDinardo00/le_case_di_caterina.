@@ -252,33 +252,10 @@ function RoomPage() {
                             <div className="room-header-info">
                                 <h1>{roomContent.title}</h1>
                                 <p className="room-tagline">{roomContent.tagline}</p>
-                                <div className="room-meta">
-                                    <span className="room-location">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                                            <circle cx="12" cy="10" r="3" />
-                                        </svg>
-                                        Firenze, Toscana, Italia
-                                    </span>
-                                </div>
                             </div>
                             <Link to="/#contact" className="btn-book-simple">
                                 {t.roomPage.bookNow}
                             </Link>
-                        </div>
-                    </div>
-
-                    <div className="room-divider"></div>
-
-                    {/* Quick Info */}
-                    <div className="room-quick-info">
-                        <div className="host-info">
-                            <div className="host-avatar">
-                                <span>C</span>
-                            </div>
-                            <div className="host-details">
-                                <h3>{t.roomPage.hostedBy}</h3>
-                            </div>
                         </div>
                     </div>
 

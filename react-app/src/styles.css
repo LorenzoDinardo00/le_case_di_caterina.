@@ -1628,13 +1628,16 @@ img {
     }
 
     .about-image {
-        order: -1;
         margin: 0 -20px;
+        overflow: hidden;
     }
 
     .about-image img {
-        aspect-ratio: 16/10;
+        aspect-ratio: 16/9;
         width: calc(100% + 40px);
+        object-fit: cover;
+        object-position: center;
+        transform: scale(1.1);
     }
 
     .image-frame {

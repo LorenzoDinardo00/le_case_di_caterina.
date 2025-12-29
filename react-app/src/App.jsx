@@ -66,27 +66,33 @@ function Navbar() {
   const handleNavClick = (e, targetId) => {
     e.preventDefault()
 
+    // Close mobile menu first
+    setMobileMenuOpen(false)
+    document.body.style.overflow = ''
+
     // If not on homepage, navigate to homepage with anchor
     if (!isHomePage) {
       navigate('/' + targetId)
-      setMobileMenuOpen(false)
-      document.body.style.overflow = ''
       return
     }
 
+    // For home, scroll to top
+    if (targetId === '#home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
+
+    // Simple scroll with fixed offset (navbar height ~70px + some padding)
     const target = document.querySelector(targetId)
     if (target) {
-      const headerOffset = 80
-      const elementPosition = target.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
+      const navbarHeight = 80
+      const targetPosition = target.offsetTop - navbarHeight
+      
       window.scrollTo({
-        top: offsetPosition,
+        top: targetPosition,
         behavior: 'smooth'
       })
     }
-    setMobileMenuOpen(false)
-    document.body.style.overflow = ''
   }
 
   const toggleMobileMenu = () => {
@@ -667,7 +673,7 @@ function ContactSection() {
                 </span>
                 <div>
                   <strong>{t.contact.address}</strong>
-                  <p>Via del Centro Storico, 12<br />50122 Firenze FI, Italia</p>
+                  <p>Via dello Studio, 12<br />50122 Firenze, Italia</p>
                 </div>
               </div>
               <div className="contact-item">
@@ -678,7 +684,7 @@ function ContactSection() {
                 </span>
                 <div>
                   <strong>{t.contact.phone}</strong>
-                  <p>+39 055 123 4567</p>
+                  <p>+39 333 199 2394</p>
                 </div>
               </div>
               <div className="contact-item">
@@ -690,7 +696,7 @@ function ContactSection() {
                 </span>
                 <div>
                   <strong>{t.contact.email}</strong>
-                  <p>info@lestanzedicaterina.it</p>
+                  <p>giacomomarretti1997@gmail.com</p>
                 </div>
               </div>
             </div>

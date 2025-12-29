@@ -19,7 +19,7 @@ export const translations = {
         'Architettura storica',
         'Vista sul Duomo di Firenze',
         'Suite con mattoni originali',
-        'Camera Italiana'
+        'Suite Italiana'
       ]
     },
     
@@ -38,9 +38,9 @@ export const translations = {
       title: 'Le Nostre Stanze',
       description: "Ogni camera è un'opera d'arte, curata nei minimi dettagli per offrire un'esperienza di soggiorno senza paragoni.",
       discover: 'Scopri',
-      spagnola: 'Camera Spagnola',
-      italiana: 'Camera Italiana',
-      francese: 'Camera Francese'
+      spagnola: 'Suite Spagnola',
+      italiana: 'Suite Italiana',
+      francese: 'Suite Francese'
     },
     
     // Services
@@ -127,7 +127,7 @@ export const translations = {
       
       // Room specific
       spagnola: {
-        title: 'Camera Spagnola',
+        title: 'Suite Spagnola',
         tagline: 'Un ambiente intenso, caldo, vibrante',
         description: 'La Suite La Spagnola interpreta uno stile mediterraneo deciso e passionale: tonalità arancio e terracotta, superfici materiche e contrasti marcati danno vita a uno spazio di forte personalità, avvolgente e pieno di energia.',
         highlights: [
@@ -138,7 +138,7 @@ export const translations = {
         ]
       },
       italiana: {
-        title: 'Camera Italiana',
+        title: 'Suite Italiana',
         tagline: 'Un ambiente intimo, materico, autentico',
         description: "La Suite L'Italiana è un omaggio allo stile italiano più essenziale: superfici in pietra, tonalità calde, luci soffuse e un bagno dal carattere deciso, con ampia doccia walk-in rivestita in mosaico.",
         highlights: [
@@ -149,7 +149,7 @@ export const translations = {
         ]
       },
       francese: {
-        title: 'Camera Francese',
+        title: 'Suite Francese',
         tagline: 'Un ambiente luminoso, raffinato, armonioso',
         description: "La Suite La Francese richiama l'eleganza senza tempo dello stile d'oltralpe: linee pulite, superfici chiare, dettagli classici e un bagno ampio e luminoso, pensato per offrire comfort e leggerezza.",
         highlights: [
@@ -182,7 +182,7 @@ export const translations = {
         'Historic architecture',
         'View of Florence Duomo',
         'Suite with original bricks',
-        'Italian Room'
+        'Italian Suite'
       ]
     },
     
@@ -201,9 +201,9 @@ export const translations = {
       title: 'Our Rooms',
       description: 'Each room is a work of art, crafted with attention to detail to offer an unparalleled stay experience.',
       discover: 'Discover',
-      spagnola: 'Spanish Room',
-      italiana: 'Italian Room',
-      francese: 'French Room'
+      spagnola: 'Spanish Suite',
+      italiana: 'Italian Suite',
+      francese: 'French Suite'
     },
     
     // Services
@@ -290,7 +290,7 @@ export const translations = {
       
       // Room specific
       spagnola: {
-        title: 'Spanish Room',
+        title: 'Spanish Suite',
         tagline: 'An intense, warm, vibrant atmosphere',
         description: 'The Spanish Suite interprets a bold and passionate Mediterranean style: orange and terracotta tones, textured surfaces and marked contrasts create a space of strong personality, enveloping and full of energy.',
         highlights: [
@@ -301,7 +301,7 @@ export const translations = {
         ]
       },
       italiana: {
-        title: 'Italian Room',
+        title: 'Italian Suite',
         tagline: 'An intimate, textured, authentic atmosphere',
         description: "The Italian Suite is a tribute to the most essential Italian style: stone surfaces, warm tones, soft lighting and a bathroom with strong character, featuring a large walk-in shower covered in mosaic.",
         highlights: [
@@ -312,7 +312,7 @@ export const translations = {
         ]
       },
       francese: {
-        title: 'French Room',
+        title: 'French Suite',
         tagline: 'A bright, refined, harmonious atmosphere',
         description: "The French Suite evokes the timeless elegance of French style: clean lines, light surfaces, classic details and a spacious, bright bathroom designed to offer comfort and lightness.",
         highlights: [
