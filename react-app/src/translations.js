@@ -66,7 +66,7 @@ export const translations = {
     location: {
       label: 'Posizione',
       title: 'Nel Cuore di Firenze',
-      description: 'Le Stanze di Caterina si trovano in una posizione privilegiata, a soli 200 metri dal Duomo di Santa Maria del Fiore. Da qui potrete raggiungere a piedi tutti i principali monumenti e musei della città.',
+      description: 'Le Stanze di Caterina si trovano in una posizione privilegiata, a soli 50 metri dal Duomo di Santa Maria del Fiore. Da qui potrete raggiungere a piedi tutti i principali monumenti e musei della città.',
       distances: [
         { value: '2 min', label: 'Duomo di Firenze' },
         { value: '5 min', label: 'Galleria degli Uffizi' },
@@ -120,7 +120,7 @@ export const translations = {
       amenities: ['Aria condizionata', 'Wi-Fi ultraveloce', 'Smart TV', 'Minibar', 'Cassaforte', 'Bagno privato'],
       amenitiesCategory: 'Servizi',
       locationTitle: 'Dove ti troverai',
-      locationDesc: 'Nel cuore del centro storico di Firenze, a soli 200 metri dal Duomo di Santa Maria del Fiore. La posizione perfetta per esplorare a piedi tutti i tesori della città.',
+      locationDesc: 'Nel cuore del centro storico di Firenze, a soli 50 metri dal Duomo di Santa Maria del Fiore. La posizione perfetta per esplorare a piedi tutti i tesori della città.',
       otherRooms: 'Scopri le altre stanze',
       backHome: 'Torna alla Home',
       showAllPhotos: 'Mostra tutte le foto',
@@ -229,7 +229,7 @@ export const translations = {
     location: {
       label: 'Location',
       title: 'In the Heart of Florence',
-      description: 'Le Stanze di Caterina is located in a privileged position, just 200 meters from the Duomo di Santa Maria del Fiore. From here you can reach all the main monuments and museums on foot.',
+      description: 'Le Stanze di Caterina is located in a privileged position, just 50 meters from the Duomo di Santa Maria del Fiore. From here you can reach all the main monuments and museums on foot.',
       distances: [
         { value: '2 min', label: 'Florence Duomo' },
         { value: '5 min', label: 'Uffizi Gallery' },
@@ -283,7 +283,7 @@ export const translations = {
       amenities: ['Air conditioning', 'Ultra-fast Wi-Fi', 'Smart TV', 'Minibar', 'Safe', 'Private bathroom'],
       amenitiesCategory: 'Amenities',
       locationTitle: 'Where you\'ll be',
-      locationDesc: 'In the heart of historic Florence, just 200 meters from the Duomo di Santa Maria del Fiore. The perfect location to explore all the treasures of the city on foot.',
+      locationDesc: 'In the heart of historic Florence, just 50 meters from the Duomo di Santa Maria del Fiore. The perfect location to explore all the treasures of the city on foot.',
       otherRooms: 'Discover other rooms',
       backHome: 'Back to Home',
       showAllPhotos: 'Show all photos',
