@@ -282,6 +282,10 @@ img {
 
 /* Language Toggle Button */
 .lang-toggle {
+    position: absolute;
+    right: clamp(30px, 5vw, 80px);
+    top: 50%;
+    transform: translateY(-50%);
     background: transparent;
     border: 1px solid var(--color-cream);
     color: var(--color-cream);
@@ -292,7 +296,7 @@ img {
     cursor: pointer;
     transition: all 0.3s var(--transition-smooth);
     font-family: var(--font-body);
-    margin-left: 20px;
+    z-index: 100;
 }
 
 .lang-toggle:hover {
@@ -1484,10 +1488,7 @@ img {
     }
 
     .lang-toggle {
-        position: absolute;
-        right: 75px;
-        top: 50%;
-        transform: translateY(-50%);
+        right: 70px;
         padding: 5px 10px;
         font-size: 0.65rem;
     }
