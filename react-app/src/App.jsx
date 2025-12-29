@@ -204,61 +204,9 @@ function Navbar() {
 
 // Hero Section Component
 function HeroSection() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const slideInterval = useRef(null)
   const heroRef = useRef(null)
   const { language } = useLanguage()
   const t = translations[language]
-
-  const slides = [
-    { image: '/img/IMG_0714.JPG', caption: t.hero.slides[0] },
-    { image: '/img/IMG_9012.jpg', caption: t.hero.slides[1] },
-    { image: '/img/IMG_7808.jpg', caption: t.hero.slides[2] },
-    { image: '/img/IMG_7814.jpg', caption: t.hero.slides[3] }
-  ]
-
-  const goToSlide = (index) => {
-    let newIndex = index
-    if (newIndex >= slides.length) newIndex = 0
-    if (newIndex < 0) newIndex = slides.length - 1
-    setCurrentSlide(newIndex)
-  }
-
-  const nextSlide = () => goToSlide(currentSlide + 1)
-  const prevSlide = () => goToSlide(currentSlide - 1)
-
-  const startSlideshow = () => {
-    slideInterval.current = setInterval(nextSlide, 7000)
-  }
-
-  const stopSlideshow = () => {
-    clearInterval(slideInterval.current)
-  }
-
-  const resetSlideshow = () => {
-    stopSlideshow()
-    startSlideshow()
-  }
-
-  useEffect(() => {
-    startSlideshow()
-    return () => stopSlideshow()
-  }, [currentSlide])
-
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'ArrowLeft') {
-        prevSlide()
-        resetSlideshow()
-      } else if (e.key === 'ArrowRight') {
-        nextSlide()
-        resetSlideshow()
-      }
-    }
-
-    document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [currentSlide])
 
   // Parallax effect
   useEffect(() => {
@@ -282,45 +230,11 @@ function HeroSection() {
   return (
     <section id="home" className="hero" ref={heroRef}>
       <div
-        className="hero-slideshow"
-        onMouseEnter={stopSlideshow}
-        onMouseLeave={startSlideshow}
-      >
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`slide ${index === currentSlide ? 'active' : ''}`}
-            style={{ backgroundImage: `url('${slide.image}')` }}
-          >
-            <div className="slide-caption">{slide.caption}</div>
-          </div>
-        ))}
-
-        <div className="slide-indicators">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              className={`indicator ${index === currentSlide ? 'active' : ''}`}
-              data-slide={index}
-              onClick={() => { goToSlide(index); resetSlideshow() }}
-            ></button>
-          ))}
-        </div>
-
-        <button className="slide-arrow prev" aria-label="Precedente" onClick={() => { prevSlide(); resetSlideshow() }}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <path d="M15 18l-6-6 6-6" />
-          </svg>
-        </button>
-        <button className="slide-arrow next" aria-label="Successivo" onClick={() => { nextSlide(); resetSlideshow() }}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <path d="M9 18l6-6-6-6" />
-          </svg>
-        </button>
-      </div>
+        className="hero-background"
+        style={{ backgroundImage: `url('/img/IMG_0714.JPG')` }}
+      ></div>
       <div className="hero-overlay"></div>
       <div className="hero-content">
-
         <h1>{t.hero.title}</h1>
         <p className="hero-subtitle">{t.hero.subtitle}</p>
         <a href="#rooms" className="btn-hero" onClick={(e) => { e.preventDefault(); document.querySelector('#rooms')?.scrollIntoView({ behavior: 'smooth' }) }}>{t.hero.cta}</a>

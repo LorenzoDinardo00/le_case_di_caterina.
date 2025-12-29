@@ -725,27 +725,39 @@
 .room-footer {
     padding: 35px 40px;
     background: var(--color-burgundy-dark);
+}
+
+.room-footer .container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+    gap: 15px;
 }
 
 .room-footer p {
     color: rgba(250, 246, 241, 0.5);
     font-size: 0.85rem;
     letter-spacing: 0.02em;
+    order: 2;
+    margin: 0;
 }
 
 .room-footer a {
-    color: rgba(250, 246, 241, 0.7);
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
+    color: var(--color-cream);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     transition: all 0.3s;
+    padding: 12px 30px;
+    border: 1px solid rgba(250, 246, 241, 0.3);
+    border-radius: 4px;
+    order: 1;
 }
 
 .room-footer a:hover {
-    color: var(--color-cream);
+    background: rgba(250, 246, 241, 0.1);
+    border-color: rgba(250, 246, 241, 0.5);
 }
 
 /* ========================================
@@ -999,10 +1011,16 @@
     }
 
     .room-footer {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
         padding: 30px 20px;
+    }
+
+    .room-footer .container {
+        gap: 12px;
+    }
+
+    .room-footer a {
+        font-size: 0.85rem;
+        padding: 10px 25px;
     }
 
     .room-lightbox-nav.prev {
