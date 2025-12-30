@@ -268,7 +268,7 @@ function AboutSection() {
             </div>
           </div>
           <div className="about-image">
-            <img src="/img/IMG_0714.JPG" alt="Interno Le Stanze di Caterina" />
+            <img src="/img/IMG_0714.JPG" alt="Interno Le Stanze di Caterina" loading="lazy" />
             <div className="image-frame"></div>
           </div>
         </div>
@@ -285,7 +285,7 @@ function RoomCard({ image, title, slug }) {
   return (
     <Link to={`/stanza/${slug}`} className="room-card">
       <div className="room-image">
-        <img src={image} alt={title} />
+        <img src={image} alt={title} loading="lazy" />
         <div className="room-overlay"></div>
       </div>
       <div className="room-info">
@@ -446,7 +446,7 @@ function GallerySection() {
           onMouseLeave={() => galleryRef.current && (galleryRef.current.style.animationPlayState = 'running')}
         >
           {allImages.map((image, index) => (
-            <img key={index} src={image.src} alt={image.alt} />
+            <img key={index} src={image.src} alt={image.alt} loading="lazy" />
           ))}
         </div>
       </div>
@@ -574,9 +574,9 @@ function ContactSection() {
             </div>
           </div>
           <div className="contact-action">
-            <a href="mailto:giacomomarretti1997@gmail.com" className="btn-book-now">
+            <Link to="/prenota" className="btn-book-now">
               {t.roomPage.bookNow}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

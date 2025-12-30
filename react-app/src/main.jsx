@@ -7,6 +7,7 @@ import ErrorBoundary from './ErrorBoundary'
 import App from './App.jsx'
 import GalleryPage from './GalleryPage.jsx'
 import RoomPage from './RoomPage.jsx'
+import BookingPage from './BookingPage.jsx'
 import PrivacyPolicy from './LegalPrivacy.jsx'
 import CookiePolicy from './LegalCookies.jsx'
 import './gallery.css'
@@ -47,6 +48,7 @@ try {
                 <Route path="/" element={<App />} />
                 <Route path="/galleria" element={<GalleryPage />} />
                 <Route path="/stanza/:roomId" element={<RoomPage />} />
+                <Route path="/prenota" element={<BookingPage />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
               </Routes>

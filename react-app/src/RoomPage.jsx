@@ -107,7 +107,7 @@ function ImageGallery({ images, title, onOpenLightbox, showAllPhotosText }) {
                 <div className="room-gallery-secondary">
                     {images.slice(1, 5).map((img, index) => (
                         <div key={index} className="room-gallery-thumb" onClick={() => onOpenLightbox(index + 1)}>
-                            <img src={img} alt={`${title} ${index + 2}`} />
+                            <img src={img} alt={`${title} ${index + 2}`} loading="lazy" />
                             {index === 3 && images.length > 5 && (
                                 <div className="gallery-more">
                                     <span>+{images.length - 5}</span>
@@ -259,7 +259,7 @@ function RoomPage() {
                                 <h1>{roomContent.title}</h1>
                                 <p className="room-tagline">{roomContent.tagline}</p>
                             </div>
-                            <Link to="/#contact" className="btn-book-simple">
+                            <Link to="/prenota" className="btn-book-simple">
                                 {t.roomPage.bookNow}
                             </Link>
                         </div>
@@ -337,7 +337,7 @@ function RoomPage() {
                         {getOtherRooms().map(otherRoom => (
                             <Link key={otherRoom.id} to={`/stanza/${otherRoom.id}`} className="other-room-card">
                                 <div className="other-room-image">
-                                    <img src={otherRoom.mainImage} alt={otherRoom.title} />
+                                    <img src={otherRoom.mainImage} alt={otherRoom.title} loading="lazy" />
                                 </div>
                                 <div className="other-room-info">
                                     <h3>{otherRoom.title}</h3>
