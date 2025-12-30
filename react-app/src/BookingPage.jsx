@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar } from './App'
 import { useLanguage } from './LanguageContext'
@@ -6,46 +6,71 @@ import './styles.css'
 
 export default function BookingPage() {
     const { language } = useLanguage()
+    const widgetRef = useRef(null)
+    const scriptLoadedRef = useRef(false)
 
     useEffect(() => {
         // Scroll to top on page load
         window.scrollTo(0, 0)
-    }, [])
 
-    // Select the correct widget page based on language
-    const widgetUrl = language === 'en' ? '/booking-widget-en.html' : '/booking-widget.html'
+        // Clean up previous widget if exists
+        if (widgetRef.current) {
+            widgetRef.current.innerHTML = '<div id="box-pren-xenion"></div>'
+        }
+
+        // Remove old scripts and styles
+        const oldStyles = document.querySelectorAll('link[href*="box-pren-xenion-css"]')
+        const oldScripts = document.querySelectorAll('script[src*="box-pren-xenion.php"]')
+        oldStyles.forEach(style => style.remove())
+        oldScripts.forEach(script => script.remove())
+
+        // Load Xenion CSS
+        const cssLink = document.createElement('link')
+        cssLink.rel = 'stylesheet'
+        cssLink.href = 'https://my.xenion.it/lestanzedicaterina/pacifik/client/modules/hotels/plugin/bookengine/box-pren-xenion-css.php?idindirizzoanag=1'
+        document.head.appendChild(cssLink)
+
+        // Load Xenion Widget Script
+        const script = document.createElement('script')
+        script.src = `https://my.xenion.it/lestanzedicaterina/pacifik/client/modules/hotels/plugin/bookengine/box-pren-xenion.php?idindirizzoanag=1&dominio=my.xenion.it&url=lestanzedicaterina&includejQuery=1&lang=${language}`
+        script.async = true
+
+        script.onload = () => {
+            scriptLoadedRef.current = true
+        }
+
+        document.body.appendChild(script)
+
+        // Cleanup function
+        return () => {
+            // Keep the widget loaded, just clean up on language change
+        }
+    }, [language])
 
     return (
         <div className="booking-page">
             <Navbar />
-            
+
             <section className="booking-hero">
                 <div className="booking-hero-overlay"></div>
                 <div className="booking-hero-content">
                     <h1>{language === 'it' ? 'Prenota il tuo Soggiorno' : 'Book your Stay'}</h1>
-                    <p>{language === 'it' 
-                        ? 'Scegli le date e prenota direttamente la tua suite nel cuore di Firenze' 
+                    <p>{language === 'it'
+                        ? 'Scegli le date e prenota direttamente la tua suite nel cuore di Firenze'
                         : 'Choose your dates and book your suite directly in the heart of Florence'}</p>
                 </div>
             </section>
 
             <section className="booking-content">
                 <div className="container">
-                    <div className="booking-widget-wrapper">
-                        <iframe 
-                            src={widgetUrl}
-                            title={language === 'it' ? 'Sistema di Prenotazione' : 'Booking System'}
-                            className="booking-iframe"
-                            frameBorder="0"
-                            scrolling="auto"
-                            allowFullScreen
-                        />
+                    <div className="booking-widget-container" ref={widgetRef}>
+                        <div id="box-pren-xenion"></div>
                     </div>
 
                     <div className="booking-help">
                         <h3>{language === 'it' ? 'Hai bisogno di aiuto?' : 'Need help?'}</h3>
-                        <p>{language === 'it' 
-                            ? 'Contattaci per qualsiasi domanda' 
+                        <p>{language === 'it'
+                            ? 'Contattaci per qualsiasi domanda'
                             : 'Contact us for any questions'}</p>
                         <div className="booking-contact-row">
                             <a href="tel:+393331992394" className="booking-contact-btn">
