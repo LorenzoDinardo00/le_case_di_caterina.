@@ -1264,11 +1264,24 @@ img {
 .footer-bottom {
     padding-top: 30px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .footer-bottom p {
     font-size: 0.85rem;
     color: rgba(250, 246, 241, 0.5);
+    margin: 0;
+}
+
+.footer-designer {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    color: rgba(250, 246, 241, 0.35);
+    font-style: italic;
 }
 
 /* ========================================
@@ -2031,4 +2044,499 @@ img {
 .animate-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ========================================
+   COOKIE BANNER
+   ======================================== */
+.cookie-banner-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    padding: 20px;
+    pointer-events: none;
+}
+
+.cookie-banner {
+    pointer-events: auto;
+    max-width: 550px;
+    margin: 0 auto;
+    background: rgba(255, 253, 249, 0.98);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(44, 36, 33, 0.12);
+    border: 1px solid rgba(237, 229, 218, 0.6);
+    overflow: hidden;
+    animation: slideUp 0.5s var(--transition-smooth);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cookie-content {
+    padding: 20px 24px;
+}
+
+.cookie-text h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-burgundy);
+    margin-bottom: 10px;
+}
+
+.cookie-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text-light);
+    margin-bottom: 12px;
+}
+
+.cookie-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--color-burgundy);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.3s ease;
+}
+
+.cookie-link:hover {
+    color: var(--color-terracotta);
+}
+
+.cookie-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+.btn-cookie {
+    flex: 1;
+    min-width: 120px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s var(--transition-smooth);
+}
+
+.btn-accept {
+    background: var(--color-burgundy);
+    color: white;
+}
+
+.btn-accept:hover {
+    background: var(--color-burgundy-light);
+    transform: translateY(-1px);
+}
+
+.btn-reject {
+    background: transparent;
+    color: var(--color-text-light);
+    border: 1px solid var(--color-cream-dark);
+}
+
+.btn-reject:hover {
+    background: var(--color-cream-dark);
+    color: var(--color-text);
+}
+
+.btn-customize {
+    background: transparent;
+    color: var(--color-burgundy);
+    border: 1px solid var(--color-burgundy);
+}
+
+.btn-customize:hover {
+    background: var(--color-burgundy);
+    color: white;
+}
+
+/* Cookie Preferences Panel */
+.cookie-preferences {
+    padding: 20px 24px;
+}
+
+.preferences-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.preferences-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-burgundy);
+}
+
+.btn-close-pref {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.btn-close-pref:hover {
+    color: var(--color-burgundy);
+}
+
+.preferences-intro {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.preference-item {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--color-cream-dark);
+}
+
+.preference-item:last-of-type {
+    border-bottom: none;
+}
+
+.pref-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.pref-label span {
+    font-weight: 500;
+    color: var(--color-text);
+    font-size: 0.95rem;
+}
+
+.pref-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--color-burgundy);
+    cursor: pointer;
+}
+
+.pref-label input[type="checkbox"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.pref-desc {
+    font-size: 0.82rem;
+    color: var(--color-text-light);
+    line-height: 1.5;
+}
+
+.preferences-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-save {
+    flex: 1;
+    background: transparent;
+    color: var(--color-burgundy);
+    border: 1px solid var(--color-burgundy);
+}
+
+.btn-save:hover {
+    background: var(--color-burgundy);
+    color: white;
+}
+
+/* Mobile Cookie Banner */
+@media (max-width: 768px) {
+    .cookie-banner-overlay {
+        padding: 15px;
+    }
+
+    .cookie-banner {
+        border-radius: 14px;
+    }
+
+    .cookie-content,
+    .cookie-preferences {
+        padding: 20px;
+    }
+
+    .cookie-text h3,
+    .preferences-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .cookie-text p,
+    .preferences-intro {
+        font-size: 0.85rem;
+    }
+
+    .cookie-actions,
+    .preferences-actions {
+        flex-direction: column;
+    }
+
+    .btn-cookie {
+        width: 100%;
+        padding: 14px 20px;
+    }
+}
+
+/* ========================================
+   POLICY PAGES (Privacy & Cookie Policy)
+   ======================================== */
+.policy-page {
+    padding-top: 140px;
+    padding-bottom: 80px;
+    min-height: 100vh;
+    background: var(--color-cream);
+}
+
+.policy-page .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.policy-page h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 600;
+    color: var(--color-burgundy);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.policy-page .last-updated {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin-bottom: 40px;
+}
+
+.policy-content {
+    background: var(--color-cream-light);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(44, 36, 33, 0.06);
+    border: 1px solid var(--color-cream-dark);
+}
+
+.policy-content section {
+    margin-bottom: 30px;
+}
+
+.policy-content section:last-child {
+    margin-bottom: 0;
+}
+
+.policy-content h2 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-burgundy);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--color-gold);
+    display: inline-block;
+}
+
+.policy-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-text-light);
+}
+
+.policy-content .booking-note {
+    background: var(--color-cream-dark);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--color-terracotta);
+    margin-top: 30px;
+}
+
+.policy-content .booking-note h2 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: var(--color-burgundy);
+}
+
+.policy-content .booking-note p {
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.7;
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.back-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-burgundy);
+    font-weight: 500;
+    text-decoration: none;
+    padding: 14px 28px;
+    border: 2px solid var(--color-burgundy);
+    border-radius: 30px;
+    transition: all 0.3s var(--transition-smooth);
+}
+
+.back-link a:hover {
+    background: var(--color-burgundy);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Mobile Policy Pages */
+@media (max-width: 768px) {
+    .policy-page {
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+
+    .policy-page .container {
+        padding: 0 20px;
+    }
+
+    .policy-content {
+        padding: 25px 20px;
+        border-radius: 12px;
+    }
+
+    .policy-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .policy-content p {
+        font-size: 0.95rem;
+    }
+
+    .policy-content .booking-note {
+        padding: 15px;
+    }
+
+    .back-link a {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ========================================
+   MAP CONSENT PLACEHOLDER
+   ======================================== */
+.map-consent-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-cream) 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.map-consent-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(to right, rgba(107, 45, 53, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(107, 45, 53, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+}
+
+.map-consent-content {
+    text-align: center;
+    padding: 40px 30px;
+    max-width: 350px;
+    z-index: 1;
+}
+
+.map-consent-content svg {
+    width: 60px;
+    height: 60px;
+    color: var(--color-burgundy);
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+.map-consent-content p {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn-accept-map {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--color-burgundy);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s var(--transition-smooth);
+}
+
+.btn-accept-map:hover {
+    background: var(--color-burgundy-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(107, 45, 53, 0.3);
+}
+
+/* Mobile Map Placeholder */
+@media (max-width: 768px) {
+    .map-consent-placeholder {
+        min-height: 280px;
+    }
+
+    .map-consent-content {
+        padding: 30px 20px;
+    }
+
+    .map-consent-content svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .map-consent-content p {
+        font-size: 0.9rem;
+    }
+
+    .btn-accept-map {
+        padding: 12px 24px;
+        font-size: 0.85rem;
+    }
 }

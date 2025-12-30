@@ -2,13 +2,31 @@ import { createContext, useContext, useState, useEffect } from 'react'
 
 const LanguageContext = createContext()
 
+// Safe localStorage helpers that handle blocked storage (e.g., Brave browser)
+const safeGetItem = (key, defaultValue = null) => {
+  try {
+    return localStorage.getItem(key) || defaultValue
+  } catch (e) {
+    console.warn('localStorage is not available:', e.message)
+    return defaultValue
+  }
+}
+
+const safeSetItem = (key, value) => {
+  try {
+    localStorage.setItem(key, value)
+  } catch (e) {
+    console.warn('localStorage is not available:', e.message)
+  }
+}
+
 export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState(() => {
-    return localStorage.getItem('language') || 'it'
+    return safeGetItem('language', 'it')
   })
 
   useEffect(() => {
-    localStorage.setItem('language', language)
+    safeSetItem('language', language)
   }, [language])
 
   const toggleLanguage = () => {
@@ -25,9 +43,8 @@ export function LanguageProvider({ children }) {
 export function useLanguage() {
   const context = useContext(LanguageContext)
   if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider')
+    // Return default values instead of throwing to prevent app crash
+    return { language: 'it', toggleLanguage: () => {} }
   }
   return context
 }
-
-

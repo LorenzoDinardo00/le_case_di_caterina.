@@ -85,12 +85,59 @@ export const translations = {
       email: 'Email'
     },
 
-    // Footer
     footer: {
       tagline: "Un'esperienza di ospitalità unica nel cuore di Firenze.",
       links: 'Link Utili',
       follow: 'Seguici',
-      rights: '© 2024 Le Stanze di Caterina. Tutti i diritti riservati.'
+      rights: '© 2026 Le Stanze di Caterina. Tutti i diritti riservati.',
+      privacy: 'Privacy Policy',
+      cookie: 'Cookie Policy',
+      preferences: 'Gestisci preferenze cookie',
+      designer: 'Engineered by Tempora Innovation'
+    },
+
+    // Cookie Banner
+    cookieBanner: {
+      title: 'Cookie e privacy',
+      text: 'Usiamo cookie tecnici necessari al funzionamento del sito. Con il tuo consenso, possiamo usare anche cookie/strumenti di misurazione e di terze parti (es. contenuti esterni come mappe o social) per migliorare l’esperienza. Puoi accettare, rifiutare o personalizzare le preferenze in qualsiasi momento.',
+      accept: 'Accetta tutti',
+      reject: 'Rifiuta non necessari',
+      customize: 'Personalizza',
+      readMore: 'Leggi la Cookie Policy',
+      preferencesTitle: 'Preferenze Cookie',
+      preferencesText: 'Qui puoi scegliere quali categorie di cookie autorizzare.',
+      necessary: 'Necessari (Sempre attivi)',
+      necessaryDesc: 'Cookie indispensabili per il funzionamento del sito (es. salvataggio delle preferenze).',
+      analytics: 'Misurazione e Terze Parti',
+      analyticsDesc: 'Cookie per analizzare le visite e integrare contenuti esterni (es. Google Maps, Social).',
+      save: 'Salva preferenze'
+    },
+
+    // Privacy Policy Page
+    privacyPolicy: {
+      title: 'Privacy Policy',
+      lastUpdated: 'Ultimo aggiornamento: 01/01/2025',
+      intro: 'In questa pagina si descrivono le modalità di gestione del sito in riferimento al trattamento dei dati personali degli utenti che lo consultano.',
+      controller: 'Titolare del Trattamento',
+      controllerText: 'Giacomo Marretti - Via dello Studio 12, 50122 Firenze (FI). Email: giacomomarretti1997@gmail.com',
+      purpose: 'Finalità del Trattamento',
+      purposeText: 'I dati sono trattati per gestire le richieste di contatto, le prenotazioni e per finalità statistiche aggregate.',
+      rights: 'Diritti degli interessati',
+      rightsText: 'Gli utenti hanno il diritto di accedere, rettificare o cancellare i propri dati contattando il titolare.',
+      bookingNote: 'Nota sulle prenotazioni',
+      bookingNoteText: 'Il modulo di prenotazione è fornito dal booking engine Xenion. Proseguendo con la prenotazione potresti essere reindirizzato o interagire con servizi Xenion; per maggiori informazioni sui trattamenti effettuati da Xenion (es. log tecnici e cookie di terze parti), consulta le loro informative privacy/cookie.'
+    },
+
+    // Cookie Policy Page
+    cookiePolicy: {
+      title: 'Cookie Policy',
+      intro: 'Questo sito utilizza cookie per migliorare l’esperienza di navigazione. Di seguito trovi le informazioni su cosa sono i cookie e come li usiamo.',
+      technical: 'Cookie Tecnici',
+      technicalText: 'Servono per il funzionamento del sito (es. ricordare la lingua o le preferenze privacy). Non richiedono consenso.',
+      analytics: 'Cookie Analitici e di Terze Parti',
+      analyticsText: 'Possiamo utilizzare strumenti per capire come gli utenti usano il sito o per mostrare mappe e contenuti social. Questi cookie richiedono il tuo consenso.',
+      management: 'Gestione dei Cookie',
+      managementText: 'Puoi modificare le tue preferenze in qualsiasi momento tramite il link "Gestisci preferenze cookie" nel footer o tramite le impostazioni del tuo browser.'
     },
 
     // Room Page
@@ -230,12 +277,59 @@ export const translations = {
       email: 'Email'
     },
 
-    // Footer
     footer: {
       tagline: 'A unique hospitality experience in the heart of Florence.',
       links: 'Useful Links',
       follow: 'Follow Us',
-      rights: '© 2024 Le Stanze di Caterina. All rights reserved.'
+      rights: '© 2026 Le Stanze di Caterina. All rights reserved.',
+      privacy: 'Privacy Policy',
+      cookie: 'Cookie Policy',
+      preferences: 'Manage cookie preferences',
+      designer: 'Engineered by Tempora Innovation'
+    },
+
+    // Cookie Banner
+    cookieBanner: {
+      title: 'Cookies and Privacy',
+      text: 'We use technical cookies necessary for the website to function. With your consent, we may also use measurement and third-party cookies (e.g. external content like maps or social media) to improve the experience. You can accept, reject, or customize your preferences at any time.',
+      accept: 'Accept all',
+      reject: 'Reject non-essential',
+      customize: 'Customize',
+      readMore: 'Read Cookie Policy',
+      preferencesTitle: 'Cookie Preferences',
+      preferencesText: 'Here you can choose which cookie categories to authorize.',
+      necessary: 'Necessary (Always active)',
+      necessaryDesc: 'Cookies essential for the website to function (e.g. saving preferences).',
+      analytics: 'Measurement & Third Party',
+      analyticsDesc: 'Cookies to analyze visits and integrate external content (e.g. Google Maps, Social).',
+      save: 'Save preferences'
+    },
+
+    // Privacy Policy Page
+    privacyPolicy: {
+      title: 'Privacy Policy',
+      lastUpdated: 'Last updated: 01/01/2025',
+      intro: 'This page describes how the site is managed with regard to the processing of personal data of users who consult it.',
+      controller: 'Data Controller',
+      controllerText: 'Giacomo Marretti - Via dello Studio 12, 50122 Firenze (FI). Email: giacomomarretti1997@gmail.com',
+      purpose: 'Purpose of Processing',
+      purposeText: 'Data is processed to manage contact requests, reservations and for aggregate statistical purposes.',
+      rights: 'Rights of Data Subjects',
+      rightsText: 'Users have the right to access, rectify or delete their data by contacting the controller.',
+      bookingNote: 'Note on reservations',
+      bookingNoteText: 'The booking engine is provided by Xenion. Proceeding with the reservation you may be redirected or interact with Xenion services; for more information on data processing by Xenion (e.g. technical logs and third-party cookies), please consult their privacy/cookie policies.'
+    },
+
+    // Cookie Policy Page
+    cookiePolicy: {
+      title: 'Cookie Policy',
+      intro: 'This site uses cookies to improve the browsing experience. Below is information on what cookies are and how we use them.',
+      technical: 'Technical Cookies',
+      technicalText: 'They are used for the functioning of the site (e.g. remembering language or privacy preferences). They do not require consent.',
+      analytics: 'Analytics and Third-Party Cookies',
+      analyticsText: 'We may use tools to understand how users use the site or to show maps and social content. These cookies require your consent.',
+      management: 'Cookie Management',
+      managementText: 'You can change your preferences at any time via the "Manage cookie preferences" link in the footer or via your browser settings.'
     },
 
     // Room Page

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import emailjs from '@emailjs/browser'
 import { useLanguage } from './LanguageContext'
+import { useCookieConsent } from './ConsentManager'
 import { translations } from './translations'
 import './styles.css'
 
@@ -466,6 +466,11 @@ function GallerySection() {
 function LocationSection() {
   const { language } = useLanguage()
   const t = translations[language]
+  const { hasAnalyticsConsent } = useCookieConsent()
+
+  const handleAcceptCookies = () => {
+    window.dispatchEvent(new Event('openCookieBanner'))
+  }
 
   return (
     <section id="location" className="location">
@@ -487,12 +492,27 @@ function LocationSection() {
           </div>
           <div className="location-map">
             <div className="map-placeholder">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2881.0876543209876!2d11.2558136!3d43.7731313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132a5403bba4a5c1%3A0x5c7b0e8b3e8f1234!2sDuomo%20di%20Firenze!5e0!3m2!1sit!2sit!4v1234567890123!5m2!1sit!2sit"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade">
-              </iframe>
+              {hasAnalyticsConsent ? (
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2881.0876543209876!2d11.2558136!3d43.7731313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132a5403bba4a5c1%3A0x5c7b0e8b3e8f1234!2sDuomo%20di%20Firenze!5e0!3m2!1sit!2sit!4v1234567890123!5m2!1sit!2sit"
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade">
+                </iframe>
+              ) : (
+                <div className="map-consent-placeholder">
+                  <div className="map-consent-content">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <p>{language === 'it' ? 'Per visualizzare la mappa, accetta i cookie di terze parti' : 'To view the map, accept third-party cookies'}</p>
+                    <button onClick={handleAcceptCookies} className="btn-accept-map">
+                      {language === 'it' ? 'Gestisci Cookie' : 'Manage Cookies'}
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -567,7 +587,13 @@ function ContactSection() {
 // Footer Component
 function Footer() {
   const { language } = useLanguage()
-  const t = translations[language]
+  const t = translations[language].footer
+
+  const openPreferences = (e) => {
+    e.preventDefault()
+    // Dispatch event to open banner
+    window.dispatchEvent(new Event('openCookieBanner'))
+  }
 
   return (
     <footer className="footer">
@@ -575,19 +601,22 @@ function Footer() {
         <div className="footer-content">
           <div className="footer-brand">
             <img src="/img/logo.png" alt="Le Stanze di Caterina" className="footer-logo" />
-            <p>{t.footer.tagline}</p>
+            <p>{t.tagline}</p>
           </div>
           <div className="footer-links">
-            <h4>{t.footer.links}</h4>
+            <h4>{t.links}</h4>
             <ul>
-              <li><a href="#home">{t.nav.home}</a></li>
-              <li><a href="#about">{t.nav.about}</a></li>
-              <li><a href="#rooms">{t.nav.rooms}</a></li>
-              <li><a href="#contact">{t.nav.contact}</a></li>
+              <li><a href="#home">{translations[language].nav.home}</a></li>
+              <li><a href="#about">{translations[language].nav.about}</a></li>
+              <li><a href="#rooms">{translations[language].nav.rooms}</a></li>
+              <li><a href="#contact">{translations[language].nav.contact}</a></li>
+              <li><a href="#" onClick={openPreferences}>{t.preferences}</a></li>
+              <li><Link to="/privacy-policy">{t.privacy}</Link></li>
+              <li><Link to="/cookie-policy">{t.cookie}</Link></li>
             </ul>
           </div>
           <div className="footer-social">
-            <h4>{t.footer.follow}</h4>
+            <h4>{t.follow}</h4>
             <div className="social-links">
               <a href="#" aria-label="Instagram">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -613,12 +642,15 @@ function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>{t.footer.rights}</p>
+          <p>{t.rights}</p>
+          <p className="footer-designer">{t.designer}</p>
         </div>
       </div>
     </footer>
   )
 }
+
+import ConsentBanner from './ConsentBanner'
 
 // Main App Component
 function App() {
@@ -689,9 +721,10 @@ function App() {
       <LocationSection />
       <ContactSection />
       <Footer />
+      <ConsentBanner />
     </>
   )
 }
 
 export default App
-export { Navbar }
+export { Navbar, Footer }
